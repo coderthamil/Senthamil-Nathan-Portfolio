@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 const PhilosophySection = () => {
   return (
     <section id="philosophy" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Glow background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[150px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5" style={{ filter: "blur(150px)" }} />
 
       <div className="container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -54,12 +53,17 @@ const PhilosophySection = () => {
                 title: "Execute",
                 body: "Pixel-perfect delivery with comprehensive design systems, detailed specifications, and close collaboration with engineering.",
               },
-            ].map((item) => (
-              <div key={item.step} className="border-t border-border pt-6 group">
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                className="border-t border-border pt-6 group cursor-default hover:border-primary/40 transition-colors duration-300"
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
                 <p className="gradient-text font-display font-bold text-sm mb-2">{item.step}</p>
-                <h3 className="text-xl font-display font-bold text-foreground mb-3">{item.title}</h3>
+                <h3 className="text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">{item.body}</p>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>

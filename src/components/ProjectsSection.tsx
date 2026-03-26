@@ -62,21 +62,25 @@ const ProjectsSection = () => {
               transition={{ duration: 0.6 }}
               className={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}
             >
-              <div className="group overflow-hidden rounded-2xl bg-card border border-border relative">
+              <motion.div
+                className="group overflow-hidden rounded-2xl bg-card border border-border relative cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <img
                   src={project.image}
                   alt={project.title}
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <span className="inline-flex items-center gap-1 text-foreground text-sm font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <span className="inline-flex items-center gap-1 text-foreground text-sm font-medium bg-card/80 px-4 py-2 rounded-full border border-border">
                     View Case Study <ExternalLink className="w-3.5 h-3.5" />
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
               <div className={i % 2 === 1 ? "md:[direction:ltr]" : ""}>
                 <h3 className="text-2xl md:text-3xl text-foreground font-display font-bold mb-4">{project.title}</h3>
@@ -84,19 +88,30 @@ const ProjectsSection = () => {
 
                 <div className="flex gap-2 mb-6">
                   {project.tools.map((tool) => (
-                    <span key={tool} className="text-xs font-medium px-3 py-1.5 bg-primary/10 text-primary rounded-full border border-primary/20">
+                    <motion.span
+                      key={tool}
+                      whileHover={{ scale: 1.1 }}
+                      className="text-xs font-medium px-3 py-1.5 bg-primary/10 text-primary rounded-full border border-primary/20 cursor-default hover:bg-primary/20 transition-colors duration-300"
+                    >
                       {tool}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
 
                 <div className="space-y-2">
                   <p className="text-sm font-medium text-foreground mb-2">Key Outcomes</p>
-                  {project.outcomes.map((outcome) => (
-                    <div key={outcome} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  {project.outcomes.map((outcome, j) => (
+                    <motion.div
+                      key={outcome}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: j * 0.1 }}
+                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                    >
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                       {outcome}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>

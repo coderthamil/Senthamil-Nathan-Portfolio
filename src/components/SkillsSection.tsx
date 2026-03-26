@@ -27,7 +27,6 @@ const skills = [
 const SkillsSection = () => {
   return (
     <section id="skills" className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
 
       <div className="container relative z-10">
@@ -55,12 +54,16 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group p-8 md:p-10 rounded-2xl bg-card/50 border border-border hover:border-primary/30 hover:glow transition-all duration-300"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group p-8 md:p-10 rounded-2xl bg-card/50 border border-border hover:border-primary/40 hover:shadow-[0_0_40px_hsl(var(--primary)/0.1)] transition-all duration-500 cursor-pointer"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6 group-hover:bg-primary/20 transition-colors">
+              <motion.div
+                className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300"
+                whileHover={{ rotate: 10 }}
+              >
                 {skill.icon}
-              </div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-3">{skill.title}</h3>
+              </motion.div>
+              <h3 className="text-xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{skill.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{skill.description}</p>
             </motion.div>
           ))}

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Github, Linkedin, Dribbble, Twitter, ArrowUpRight } from "lucide-react";
 
 const socials = [
@@ -23,26 +24,29 @@ const Footer = () => {
 
           <div className="flex items-center gap-4">
             {socials.map((s) => (
-              <a
+              <motion.a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary-foreground hover:bg-primary hover:border-primary transition-all duration-300"
+                whileHover={{ scale: 1.15, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {s.icon}
-              </a>
+              </motion.a>
             ))}
           </div>
 
-          <a
+          <motion.a
             href="/resume.pdf"
             download
             className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+            whileHover={{ x: 3 }}
           >
             Download Resume <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          </motion.a>
         </div>
 
         <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">

@@ -6,10 +6,12 @@ import SkillsSection from "@/components/SkillsSection";
 import PhilosophySection from "@/components/PhilosophySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import GradientMesh from "@/components/GradientMesh";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <GradientMesh />
       <Navbar />
       <HeroSection />
       <CompaniesCarousel />

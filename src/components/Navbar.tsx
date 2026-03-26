@@ -5,6 +5,44 @@ import ThemeToggle from "./ThemeToggle";
 
 const navItems = ["Projects", "Skills", "Philosophy", "Contact"];
 
+const LiquidLink = ({ href, children, onClick, className = "" }: { href: string; children: React.ReactNode; onClick?: () => void; className?: string }) => {
+  return (
+    <motion.a
+      href={href}
+      onClick={onClick}
+      className={`relative text-muted-foreground hover:text-foreground transition-colors text-sm font-medium group ${className}`}
+      whileHover="hover"
+    >
+      <span className="relative z-10">{children}</span>
+      {/* Liquid blob hover effect */}
+      <motion.span
+        className="absolute -inset-x-3 -inset-y-1.5 rounded-full bg-primary/10 -z-0"
+        initial={{ scale: 0, opacity: 0 }}
+        variants={{
+          hover: {
+            scale: 1,
+            opacity: 1,
+            transition: { type: "spring", stiffness: 400, damping: 15 },
+          },
+        }}
+        style={{ borderRadius: "40% 60% 55% 45% / 55% 40% 60% 45%" }}
+      />
+      {/* Underline liquid drip */}
+      <motion.span
+        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary origin-left"
+        initial={{ scaleX: 0 }}
+        variants={{
+          hover: {
+            scaleX: 1,
+            transition: { duration: 0.3, ease: "easeOut" },
+          },
+        }}
+        style={{ borderRadius: "9999px" }}
+      />
+    </motion.a>
+  );
+};
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -23,27 +61,36 @@ const Navbar = () => {
         }`}
       >
         <div className="container flex items-center justify-between">
-          <a href="#" className="text-foreground font-display text-xl font-bold">
+          <motion.a
+            href="#"
+            className="text-foreground font-display text-xl font-bold"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Alex<span className="gradient-text">.</span>
-          </a>
+          </motion.a>
 
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
-              >
+              <LiquidLink key={item} href={`#${item.toLowerCase()}`}>
                 {item}
-              </a>
+              </LiquidLink>
             ))}
-            <a
+            <motion.a
               href="/resume.pdf"
               download
-              className="text-sm font-medium px-4 py-2 rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+              className="relative text-sm font-medium px-4 py-2 rounded-full bg-primary text-primary-foreground overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Resume
-            </a>
+              <span className="relative z-10">Resume</span>
+              <motion.span
+                className="absolute inset-0 bg-accent"
+                initial={{ x: "-100%", skewX: "-15deg" }}
+                whileHover={{ x: "0%", skewX: "0deg" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              />
+            </motion.a>
             <ThemeToggle />
           </div>
 
@@ -65,23 +112,29 @@ const Navbar = () => {
             className="fixed inset-0 z-40 glass pt-24 px-8 md:hidden"
           >
             <div className="flex flex-col gap-6">
-              {navItems.map((item) => (
-                <a
+              {navItems.map((item, i) => (
+                <motion.a
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setMobileOpen(false)}
                   className="text-foreground text-2xl font-display font-bold"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.08 }}
                 >
                   {item}
-                </a>
+                </motion.a>
               ))}
-              <a
+              <motion.a
                 href="/resume.pdf"
                 download
                 className="text-lg font-medium px-6 py-3 rounded-full bg-primary text-primary-foreground text-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
               >
                 Download Resume
-              </a>
+              </motion.a>
             </div>
           </motion.div>
         )}

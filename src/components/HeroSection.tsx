@@ -27,7 +27,7 @@ const HeroSection = () => {
 
   const splitText = (text: string) =>
     text.split("").map((char, i) => (
-      <span key={i} className="char inline-block" style={{ opacity: 0 }}>
+      <span key={i} className="char inline-block">
         {char === " " ? "\u00A0" : char}
       </span>
     ));

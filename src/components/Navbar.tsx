@@ -5,43 +5,15 @@ import ThemeToggle from "./ThemeToggle";
 
 const navItems = ["Projects", "Skills", "Philosophy", "Contact"];
 
-const LiquidLink = ({ href, children, onClick, className = "" }: { href: string; children: React.ReactNode; onClick?: () => void; className?: string }) => {
-  return (
-    <motion.a
-      href={href}
-      onClick={onClick}
-      className={`relative text-muted-foreground hover:text-foreground transition-colors text-sm font-medium group ${className}`}
-      whileHover="hover"
-    >
-      <span className="relative z-10">{children}</span>
-      {/* Liquid blob hover effect */}
-      <motion.span
-        className="absolute -inset-x-3 -inset-y-1.5 rounded-full bg-primary/10 -z-0"
-        initial={{ scale: 0, opacity: 0 }}
-        variants={{
-          hover: {
-            scale: 1,
-            opacity: 1,
-            transition: { type: "spring", stiffness: 400, damping: 15 },
-          },
-        }}
-        style={{ borderRadius: "40% 60% 55% 45% / 55% 40% 60% 45%" }}
-      />
-      {/* Underline liquid drip */}
-      <motion.span
-        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary origin-left"
-        initial={{ scaleX: 0 }}
-        variants={{
-          hover: {
-            scaleX: 1,
-            transition: { duration: 0.3, ease: "easeOut" },
-          },
-        }}
-        style={{ borderRadius: "9999px" }}
-      />
-    </motion.a>
-  );
-};
+const NavLink = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => (
+  <a
+    href={href}
+    onClick={onClick}
+    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
+  >
+    {children}
+  </a>
+);
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

@@ -32,13 +32,13 @@
 
     --border: 230 12% 18%;
     --input: 230 12% 18%;
-    --ring: 270 80% 65%;
+    --ring: 145 72% 45%;
 
     --radius: 0.75rem;
 
-    --glow: 270 80% 65%;
-    --gradient-start: 270 80% 65%;
-    --gradient-end: 330 80% 60%;
+    --glow: 145 72% 45%;
+    --gradient-start: 145 72% 45%;
+    --gradient-end: 160 80% 40%;
     --surface: 230 15% 14%;
 
     --sidebar-background: 230 15% 10%;

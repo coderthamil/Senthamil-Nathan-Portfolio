@@ -7,11 +7,15 @@ import PhilosophySection from "@/components/PhilosophySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import GradientMesh from "@/components/GradientMesh";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       <GradientMesh />
+      <div className="fixed inset-0 -z-5 pointer-events-none">
+        <ParticlesBackground />
+      </div>
       <Navbar />
       <HeroSection />
       <CompaniesCarousel />

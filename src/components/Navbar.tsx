@@ -5,16 +5,6 @@ import ThemeToggle from "./ThemeToggle";
 
 const navItems = ["Projects", "Skills", "Philosophy", "Contact"];
 
-const NavLink = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick?: () => void }) => (
-  <a
-    href={href}
-    onClick={onClick}
-    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium"
-  >
-    {children}
-  </a>
-);
-
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -28,41 +18,32 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled ? "glass border-b border-border py-4" : "bg-transparent py-6"
         }`}
       >
         <div className="container flex items-center justify-between">
-          <motion.a
-            href="#"
-            className="text-foreground font-display text-xl font-bold"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Alex<span className="gradient-text">.</span>
-          </motion.a>
+          <a href="#" className="text-foreground font-display text-2xl italic">
+            Alex<span className="text-primary">.</span>
+          </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
-              <NavLink key={item} href={`#${item.toLowerCase()}`}>
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm tracking-wide"
+              >
                 {item}
-              </NavLink>
+              </a>
             ))}
-            <motion.a
+            <a
               href="/resume.pdf"
               download
-              className="relative text-sm font-medium px-4 py-2 rounded-full bg-primary text-primary-foreground overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="text-sm font-medium px-5 py-2 rounded-full bg-primary text-primary-foreground hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all duration-300"
             >
-              <span className="relative z-10">Resume</span>
-              <motion.span
-                className="absolute inset-0 bg-accent"
-                initial={{ x: "-100%", skewX: "-15deg" }}
-                whileHover={{ x: "0%", skewX: "0deg" }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-              />
-            </motion.a>
+              Resume
+            </a>
             <ThemeToggle />
           </div>
 
@@ -89,7 +70,7 @@ const Navbar = () => {
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => setMobileOpen(false)}
-                  className="text-foreground text-2xl font-display font-bold"
+                  className="text-foreground text-3xl font-display italic"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.08 }}
@@ -97,16 +78,6 @@ const Navbar = () => {
                   {item}
                 </motion.a>
               ))}
-              <motion.a
-                href="/resume.pdf"
-                download
-                className="text-lg font-medium px-6 py-3 rounded-full bg-primary text-primary-foreground text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                Download Resume
-              </motion.a>
             </div>
           </motion.div>
         )}

@@ -50,14 +50,16 @@ const HeroSection = () => {
 
             <h1
               ref={headingRef}
-              className="text-foreground text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] mb-8"
+              className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] mb-8"
               style={{ perspective: "1000px" }}
             >
-              {splitText("Crafting digital")}
+              <span className="text-white">
+                {splitText("Crafting digital")}
+                <br />
+                {splitText("experiences that")}
+              </span>
               <br />
-              {splitText("experiences that")}
-              <br />
-              <span className="gradient-text">
+              <span className="text-primary">
                 {splitText("feel right.")}
               </span>
             </h1>

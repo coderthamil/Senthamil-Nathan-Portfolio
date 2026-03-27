@@ -59,9 +59,17 @@ const HeroSection = () => {
                 {splitText("experiences that")}
               </span>
               <br />
-              <span className="text-primary">
-                {splitText("feel right.")}
-              </span>
+              <span className="char inline-block text-primary">f</span>
+              <span className="char inline-block text-primary">e</span>
+              <span className="char inline-block text-primary">e</span>
+              <span className="char inline-block text-primary">l</span>
+              <span className="char inline-block text-primary">{"\u00A0"}</span>
+              <span className="char inline-block text-primary">r</span>
+              <span className="char inline-block text-primary">i</span>
+              <span className="char inline-block text-primary">g</span>
+              <span className="char inline-block text-primary">h</span>
+              <span className="char inline-block text-primary">t</span>
+              <span className="char inline-block text-primary">.</span>
             </h1>
 
             <motion.p

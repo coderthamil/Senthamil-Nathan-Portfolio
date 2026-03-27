@@ -25,9 +25,9 @@ const HeroSection = () => {
     );
   }, []);
 
-  const splitText = (text: string) =>
+  const splitText = (text: string, className = "") =>
     text.split("").map((char, i) => (
-      <span key={i} className="char inline-block">
+      <span key={i} className={`char inline-block ${className}`}>
         {char === " " ? "\u00A0" : char}
       </span>
     ));
@@ -59,17 +59,7 @@ const HeroSection = () => {
                 {splitText("experiences that")}
               </span>
               <br />
-              <span className="char inline-block text-primary">f</span>
-              <span className="char inline-block text-primary">e</span>
-              <span className="char inline-block text-primary">e</span>
-              <span className="char inline-block text-primary">l</span>
-              <span className="char inline-block text-primary">{"\u00A0"}</span>
-              <span className="char inline-block text-primary">r</span>
-              <span className="char inline-block text-primary">i</span>
-              <span className="char inline-block text-primary">g</span>
-              <span className="char inline-block text-primary">h</span>
-              <span className="char inline-block text-primary">t</span>
-              <span className="char inline-block text-primary">.</span>
+              {splitText("feel right.", "text-primary")}
             </h1>
 
             <motion.p

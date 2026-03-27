@@ -44,9 +44,9 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <LiquidLink key={item} href={`#${item.toLowerCase()}`}>
+              <NavLink key={item} href={`#${item.toLowerCase()}`}>
                 {item}
-              </LiquidLink>
+              </NavLink>
             ))}
             <motion.a
               href="/resume.pdf"

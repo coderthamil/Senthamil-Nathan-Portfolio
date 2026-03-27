@@ -78,11 +78,11 @@
 
     --border: 220 15% 85%;
     --input: 220 15% 85%;
-    --ring: 270 80% 55%;
+    --ring: 145 72% 38%;
 
-    --glow: 270 80% 55%;
-    --gradient-start: 270 80% 55%;
-    --gradient-end: 330 80% 55%;
+    --glow: 145 72% 38%;
+    --gradient-start: 145 72% 38%;
+    --gradient-end: 160 80% 35%;
     --surface: 220 20% 92%;
   }
 }

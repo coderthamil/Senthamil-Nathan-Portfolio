@@ -88,7 +88,7 @@ const HeroSection = () => {
             >
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-medium text-sm hover:shadow-[0_0_40px_hsl(var(--primary)/0.3)] hover:scale-105 active:scale-95 transition-all duration-300"
+                className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-medium text-sm hover:shadow-[0_0_30px_hsl(var(--primary)/0.5),0_0_60px_hsl(var(--primary)/0.2)] hover:scale-105 active:scale-95 transition-all duration-300"
               >
                 View Projects
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 16 16">
@@ -97,7 +97,7 @@ const HeroSection = () => {
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-3.5 rounded-full font-medium text-sm hover:border-primary/50 hover:bg-primary/5 hover:scale-105 active:scale-95 transition-all duration-300"
+                className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-3.5 rounded-full font-medium text-sm hover:border-primary/50 hover:bg-primary/5 hover:shadow-[0_0_20px_hsl(var(--primary)/0.15)] hover:scale-105 active:scale-95 transition-all duration-300"
               >
                 Get in Touch
               </a>

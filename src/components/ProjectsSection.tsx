@@ -51,7 +51,7 @@ const ProjectsSection = () => {
           {projects.map((project, i) => (
             <ScrollReveal key={project.title} delay={0.1}>
               <div className={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${i % 2 === 1 ? "md:[direction:rtl]" : ""}`}>
-                <div className="group overflow-hidden rounded-xl bg-card border border-border relative cursor-pointer hover:border-primary/30 transition-all duration-500">
+                <div className="group overflow-hidden rounded-xl bg-card border border-border relative cursor-pointer hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.15),0_0_60px_hsl(var(--primary)/0.05)] transition-all duration-500">
                   <img
                     src={project.image}
                     alt={project.title}

@@ -43,7 +43,7 @@ const SkillsSection = () => {
         <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
           {skills.map((skill, i) => (
             <ScrollReveal key={skill.title} delay={i * 0.1}>
-              <div className="group p-8 md:p-10 rounded-xl bg-card/40 border border-border hover:border-primary/30 hover:bg-card/70 transition-all duration-500 cursor-pointer h-full">
+              <div className="group p-8 md:p-10 rounded-xl bg-card/40 border border-border hover:border-primary/40 hover:bg-card/70 hover:shadow-[0_0_30px_hsl(var(--primary)/0.12),0_0_60px_hsl(var(--primary)/0.04)] transition-all duration-500 cursor-pointer h-full">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
                   {skill.icon}
                 </div>

@@ -32,7 +32,7 @@ const Navbar = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm tracking-wide"
+                className="text-muted-foreground hover:text-primary hover:drop-shadow-[0_0_8px_hsl(var(--primary)/0.6)] transition-all duration-300 text-sm tracking-wide"
               >
                 {item}
               </a>
@@ -40,7 +40,7 @@ const Navbar = () => {
             <a
               href="/resume.pdf"
               download
-              className="text-sm font-medium px-5 py-2 rounded-full bg-primary text-primary-foreground hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all duration-300"
+              className="text-sm font-medium px-5 py-2 rounded-full bg-primary text-primary-foreground hover:shadow-[0_0_25px_hsl(var(--primary)/0.5),0_0_50px_hsl(var(--primary)/0.2)] transition-all duration-300"
             >
               Resume
             </a>

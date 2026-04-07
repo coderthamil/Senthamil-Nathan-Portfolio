@@ -7,11 +7,13 @@ import PhilosophySection from "@/components/PhilosophySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ThreeBackground from "@/components/ThreeBackground";
+import GradientMesh from "@/components/GradientMesh";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
       <ThreeBackground />
+      <GradientMesh />
       <Navbar />
       <HeroSection />
       <CompaniesCarousel />

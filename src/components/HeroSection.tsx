@@ -68,7 +68,7 @@ const HeroSection = () => {
     <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
       <div className="container relative z-10 py-28 md:py-36">
         <div className="grid md:grid-cols-[1fr_400px] gap-12 md:gap-20 items-center">
-          <div className="max-w-3xl">
+          <motion.div className="max-w-3xl" style={{ y: textY }}>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "3rem" }}

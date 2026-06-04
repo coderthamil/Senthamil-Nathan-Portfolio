@@ -27,6 +27,10 @@ const HeroSection = () => {
   const rotateX = useTransform(springY, [-1, 1], [6, -6]);
   const translateX = useTransform(springX, [-1, 1], [-20, 20]);
   const translateY = useTransform(springY, [-1, 1], [-20, 20]);
+  const frame1X = useTransform(springX, [-1, 1], [10, -10]);
+  const frame1Y = useTransform(springY, [-1, 1], [10, -10]);
+  const frame2X = useTransform(springX, [-1, 1], [20, -20]);
+  const frame2Y = useTransform(springY, [-1, 1], [20, -20]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

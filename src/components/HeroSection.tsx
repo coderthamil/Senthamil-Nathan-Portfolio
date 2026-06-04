@@ -153,7 +153,7 @@ const HeroSection = () => {
               {/* Decorative frame */}
               <motion.div
                 className="absolute -inset-4 border border-primary/20 rounded-2xl"
-                style={{ x: useTransform(springX, [-1, 1], [10, -10]), y: useTransform(springY, [-1, 1], [10, -10]) }}
+                style={{ x: frame1X, y: frame1Y }}
               />
               <motion.div
                 className="absolute -inset-8 border border-border rounded-3xl"

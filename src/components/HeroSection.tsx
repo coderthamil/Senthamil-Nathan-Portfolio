@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import designerPortrait from "@/assets/designer-3d-avatar.png";
@@ -9,6 +9,39 @@ gsap.registerPlugin(ScrollTrigger);
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const avatarRef = useRef<HTMLDivElement>(null);
+
+  // Scroll-based parallax
+  const { scrollY } = useScroll();
+  const avatarY = useTransform(scrollY, [0, 800], [0, -120]);
+  const avatarScale = useTransform(scrollY, [0, 800], [1, 0.92]);
+  const textY = useTransform(scrollY, [0, 800], [0, 80]);
+  const bgY = useTransform(scrollY, [0, 800], [0, 200]);
+
+  // Mouse-based parallax for avatar
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 80, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 80, damping: 20 });
+  const rotateY = useTransform(springX, [-1, 1], [-8, 8]);
+  const rotateX = useTransform(springY, [-1, 1], [6, -6]);
+  const translateX = useTransform(springX, [-1, 1], [-20, 20]);
+  const translateY = useTransform(springY, [-1, 1], [-20, 20]);
+  const frame1X = useTransform(springX, [-1, 1], [10, -10]);
+  const frame1Y = useTransform(springY, [-1, 1], [10, -10]);
+  const frame2X = useTransform(springX, [-1, 1], [20, -20]);
+  const frame2Y = useTransform(springY, [-1, 1], [20, -20]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      mouseX.set(x);
+      mouseY.set(y);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
 
   useEffect(() => {
     if (!headingRef.current) return;
@@ -39,7 +72,7 @@ const HeroSection = () => {
     <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden">
       <div className="container relative z-10 py-28 md:py-36">
         <div className="grid md:grid-cols-[1fr_400px] gap-12 md:gap-20 items-center">
-          <div className="max-w-3xl">
+          <motion.div className="max-w-3xl" style={{ y: textY }}>
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: "3rem" }}
@@ -102,29 +135,41 @@ const HeroSection = () => {
                 Get in Touch
               </a>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Portrait Avatar */}
           <motion.div
+            ref={avatarRef}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+            style={{ y: avatarY, scale: avatarScale, perspective: 1000 }}
             className="hidden md:block relative"
           >
-            <div className="relative">
+            <motion.div
+              className="relative"
+              style={{ rotateX, rotateY, x: translateX, y: translateY, transformStyle: "preserve-3d" }}
+            >
               {/* Decorative frame */}
-              <div className="absolute -inset-4 border border-primary/20 rounded-2xl" />
-              <div className="absolute -inset-8 border border-border rounded-3xl" />
-              
+              <motion.div
+                className="absolute -inset-4 border border-primary/20 rounded-2xl"
+                style={{ x: frame1X, y: frame1Y }}
+              />
+              <motion.div
+                className="absolute -inset-8 border border-border rounded-3xl"
+                style={{ x: frame2X, y: frame2Y }}
+              />
+
               {/* Primary glow */}
               <div className="absolute -inset-12 bg-primary/5 rounded-3xl" style={{ filter: "blur(40px)" }} />
-              
+
               <img
                 src={designerPortrait}
                 alt="Designer portrait"
                 width={640}
                 height={800}
                 className="relative rounded-xl w-full h-[480px] lg:h-[540px] object-cover"
+                style={{ transform: "translateZ(40px)" }}
               />
 
               {/* Overlay gradient */}
@@ -136,11 +181,12 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.8 }}
+                style={{ transform: "translateZ(60px)" }}
               >
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="text-xs font-medium text-foreground">Available for work</span>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 

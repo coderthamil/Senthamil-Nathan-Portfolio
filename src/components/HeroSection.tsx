@@ -38,6 +38,8 @@ const HeroSection = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
+
+  useEffect(() => {
     if (!headingRef.current) return;
     const chars = headingRef.current.querySelectorAll(".char");
     gsap.fromTo(

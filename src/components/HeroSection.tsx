@@ -9,8 +9,35 @@ gsap.registerPlugin(ScrollTrigger);
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const avatarRef = useRef<HTMLDivElement>(null);
+
+  // Scroll-based parallax
+  const { scrollY } = useScroll();
+  const avatarY = useTransform(scrollY, [0, 800], [0, -120]);
+  const avatarScale = useTransform(scrollY, [0, 800], [1, 0.92]);
+  const textY = useTransform(scrollY, [0, 800], [0, 80]);
+  const bgY = useTransform(scrollY, [0, 800], [0, 200]);
+
+  // Mouse-based parallax for avatar
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 80, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 80, damping: 20 });
+  const rotateY = useTransform(springX, [-1, 1], [-8, 8]);
+  const rotateX = useTransform(springY, [-1, 1], [6, -6]);
+  const translateX = useTransform(springX, [-1, 1], [-20, 20]);
+  const translateY = useTransform(springY, [-1, 1], [-20, 20]);
 
   useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      mouseX.set(x);
+      mouseY.set(y);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
     if (!headingRef.current) return;
     const chars = headingRef.current.querySelectorAll(".char");
     gsap.fromTo(

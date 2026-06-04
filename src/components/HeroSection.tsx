@@ -131,7 +131,7 @@ const HeroSection = () => {
                 Get in Touch
               </a>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Portrait Avatar */}
           <motion.div

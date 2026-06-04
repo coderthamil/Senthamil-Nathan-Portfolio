@@ -157,7 +157,7 @@ const HeroSection = () => {
               />
               <motion.div
                 className="absolute -inset-8 border border-border rounded-3xl"
-                style={{ x: useTransform(springX, [-1, 1], [20, -20]), y: useTransform(springY, [-1, 1], [20, -20]) }}
+                style={{ x: frame2X, y: frame2Y }}
               />
 
               {/* Primary glow */}

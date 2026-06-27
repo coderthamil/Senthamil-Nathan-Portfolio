@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
-const navItems = ["Projects", "Skills", "Philosophy", "Contact"];
+const navItems = ["Projects", "Backend", "Skills", "Philosophy", "Contact"];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

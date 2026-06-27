@@ -86,7 +86,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-primary font-medium tracking-[0.2em] uppercase text-xs mb-6"
             >
-              UI/UX Designer & Creative Developer
+              UI/UX Designer & Backend Developer
             </motion.p>
 
             <h1
@@ -94,11 +94,11 @@ const HeroSection = () => {
               className="text-5xl md:text-7xl lg:text-[5.5rem] font-display leading-[1.05] mb-8"
               style={{ perspective: "1000px" }}
             >
-              {splitText("Crafting digital", "text-foreground")}
+              {splitText("Designing UX,", "text-foreground")}
               <br />
-              {splitText("experiences that", "text-foreground")}
+              {splitText("engineering APIs", "text-foreground")}
               <br />
-              <em>{splitText("feel right.", "text-primary")}</em>
+              <em>{splitText("that scale.", "text-primary")}</em>
             </h1>
 
             <motion.p
@@ -107,10 +107,10 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 1 }}
               className="text-muted-foreground text-lg max-w-lg leading-relaxed mb-10"
             >
-              I design intuitive, research-driven interfaces that transform complex
-              problems into elegant solutions. Proficient in{" "}
-              <span className="text-foreground">Figma</span> &{" "}
-              <span className="text-foreground">Photoshop</span>.
+              I bridge product design and backend engineering — crafting interfaces in{" "}
+              <span className="text-foreground">Figma</span> and shipping REST APIs in{" "}
+              <span className="text-foreground">Python</span> &{" "}
+              <span className="text-foreground">FastAPI</span>.
             </motion.p>
 
             <motion.div

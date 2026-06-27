@@ -7,6 +7,7 @@ import PhilosophySection from "@/components/PhilosophySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import VideoBackground from "@/components/VideoBackground";
+import ParallaxSection from "@/components/ParallaxSection";
 
 const Index = () => {
   return (
@@ -15,10 +16,10 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <CompaniesCarousel />
-      <ProjectsSection />
-      <SkillsSection />
-      <PhilosophySection />
-      <ContactSection />
+      <ParallaxSection speed={0.4}><ProjectsSection /></ParallaxSection>
+      <ParallaxSection speed={0.3}><SkillsSection /></ParallaxSection>
+      <ParallaxSection speed={0.5}><PhilosophySection /></ParallaxSection>
+      <ParallaxSection speed={0.2}><ContactSection /></ParallaxSection>
       <Footer />
     </div>
   );

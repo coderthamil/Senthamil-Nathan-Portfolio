@@ -1,4 +1,4 @@
-import { Search, Layers, Layout, Grid3X3 } from "lucide-react";
+import { Search, Layers, Layout, Grid3X3, ServerCog, Database, Zap, ShieldCheck } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 const skills = [
@@ -21,6 +21,26 @@ const skills = [
     title: "Design Systems",
     description: "Building scalable component libraries, token systems, and comprehensive documentation that ensure consistency across products and teams.",
     icon: <Grid3X3 className="w-5 h-5" />,
+  },
+  {
+    title: "REST APIs & FastAPI",
+    description: "Designing versioned REST APIs in Python with FastAPI — Pydantic schemas, dependency injection, async endpoints, and OpenAPI docs out of the box.",
+    icon: <ServerCog className="w-5 h-5" />,
+  },
+  {
+    title: "Databases & Data Modeling",
+    description: "PostgreSQL, Redis, and SQLAlchemy. Schema design, indexing, migrations with Alembic, and query tuning for high-throughput product workloads.",
+    icon: <Database className="w-5 h-5" />,
+  },
+  {
+    title: "E-Commerce Backends",
+    description: "Catalog, cart, checkout, inventory, and order pipelines. Stripe & webhooks integration, idempotent payments, and event-driven order fulfilment.",
+    icon: <Zap className="w-5 h-5" />,
+  },
+  {
+    title: "Auth, Security & DevOps",
+    description: "JWT/OAuth2 flows, RBAC, rate limiting, Docker, CI/CD on GitHub Actions, and observability with structured logs, metrics, and tracing.",
+    icon: <ShieldCheck className="w-5 h-5" />,
   },
 ];
 

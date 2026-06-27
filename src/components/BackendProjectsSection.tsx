@@ -3,6 +3,78 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Server, ShoppingCart, Workflow, Bot, Github, ArrowRight } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
+const FastAPIIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-8 h-8 transition-transform duration-300 group-hover:scale-110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" fill="url(#fastapi-grad)" />
+    <path d="M12 4v7h5l-6 9v-7H6l6-9z" fill="#ffffff" />
+    <defs>
+      <linearGradient id="fastapi-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#009485" />
+        <stop offset="1" stopColor="#005950" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const ExpressIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-8 h-8 transition-transform duration-300 group-hover:scale-110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" fill="url(#express-grad)" />
+    <path d="M7 8h10v2h-8v2h6v2h-6v2h8v2H7V8z" fill="#ffffff" />
+    <defs>
+      <linearGradient id="express-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#353535" />
+        <stop offset="1" stopColor="#111111" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const GraphQLIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-8 h-8 transition-transform duration-300 group-hover:scale-110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" fill="url(#graphql-grad)" />
+    <path d="M12 5.5l5.5 3.18v6.36L12 18.22 6.5 15.04V8.68L12 5.5z" stroke="#ffffff" strokeWidth="1" />
+    <path d="M12 5.5v12.72M6.5 8.68h11M6.5 15.04h11" stroke="rgba(255,255,255,0.3)" strokeWidth="0.8" />
+    <circle cx="12" cy="5.5" r="1" fill="#ffffff" />
+    <circle cx="17.5" cy="8.68" r="1" fill="#ffffff" />
+    <circle cx="17.5" cy="15.04" r="1" fill="#ffffff" />
+    <circle cx="12" cy="18.22" r="1" fill="#ffffff" />
+    <circle cx="6.5" cy="15.04" r="1" fill="#ffffff" />
+    <circle cx="6.5" cy="8.68" r="1" fill="#ffffff" />
+    <circle cx="12" cy="12" r="1.5" fill="#ffffff" />
+    <defs>
+      <linearGradient id="graphql-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#E10098" />
+        <stop offset="1" stopColor="#B60072" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const ReactIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-8 h-8 transition-transform duration-300 group-hover:scale-110 animate-[spin_20s_linear_infinite]" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" fill="url(#react-grad)" />
+    <g stroke="#61dafb" strokeWidth="0.6">
+      <ellipse rx="6.5" ry="2.2" transform="translate(12, 12) rotate(0)" />
+      <ellipse rx="6.5" ry="2.2" transform="translate(12, 12) rotate(60)" />
+      <ellipse rx="6.5" ry="2.2" transform="translate(12, 12) rotate(120)" />
+    </g>
+    <circle cx="12" cy="12" r="1" fill="#61dafb" />
+    <defs>
+      <linearGradient id="react-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#20232a" />
+        <stop offset="1" stopColor="#15171c" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const techLogos = [
+  { name: "FastAPI", icon: <FastAPIIcon />, glowColor: "hover:shadow-[0_0_20px_rgba(0,150,136,0.3)] hover:border-[#009688]/50" },
+  { name: "Express.js", icon: <ExpressIcon />, glowColor: "hover:shadow-[0_0_20px_rgba(100,100,100,0.3)] hover:border-[#828282]/50" },
+  { name: "GraphQL", icon: <GraphQLIcon />, glowColor: "hover:shadow-[0_0_20px_rgba(225,0,152,0.3)] hover:border-[#E10098]/50" },
+  { name: "React", icon: <ReactIcon />, glowColor: "hover:shadow-[0_0_20px_rgba(97,218,251,0.3)] hover:border-[#61dafb]/50" },
+];
+
 type Project = {
   title: string;
   tagline: string;
@@ -206,19 +278,41 @@ const BackendProjectsSection = () => {
   return (
     <section id="backend" className="py-24 md:py-32 relative">
       <div className="container">
-        <ScrollReveal className="max-w-2xl mb-16">
-          <p className="text-primary font-medium tracking-[0.2em] uppercase text-xs mb-4">
-            Backend Engineering
-          </p>
-          <h2 className="text-4xl md:text-6xl text-foreground font-display italic mb-6">
-            APIs that <span className="text-primary">power products.</span>
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Python &amp; FastAPI projects across e-commerce, realtime platforms, workflow
-            orchestration, and AI gateways — production-grade REST services with auth,
-            payments, and observability.
-          </p>
-        </ScrollReveal>
+        <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-end mb-16">
+          <ScrollReveal className="max-w-2xl">
+            <p className="text-primary font-medium tracking-[0.2em] uppercase text-xs mb-4">
+              Backend Engineering
+            </p>
+            <h2 className="text-4xl md:text-6xl text-foreground font-display italic mb-6">
+              APIs that <span className="text-primary">power products.</span>
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Python &amp; FastAPI projects across e-commerce, realtime platforms, workflow
+              orchestration, and AI gateways — production-grade REST services with auth,
+              payments, and observability.
+            </p>
+          </ScrollReveal>
+
+          {/* Technology logos */}
+          <ScrollReveal className="grid grid-cols-2 gap-3 w-full lg:w-[320px]">
+            {techLogos.map((tech) => (
+              <div
+                key={tech.name}
+                className={`group flex items-center gap-3 p-3.5 rounded-xl border border-border bg-card/25 backdrop-blur-sm transition-all duration-300 hover:bg-card/75 hover:-translate-y-1 cursor-default ${tech.glowColor}`}
+              >
+                {tech.icon}
+                <div className="flex flex-col min-w-0">
+                  <span className="text-xs font-semibold text-foreground truncate">
+                    {tech.name}
+                  </span>
+                  <span className="text-[9px] text-muted-foreground uppercase tracking-widest">
+                    Technology
+                  </span>
+                </div>
+              </div>
+            ))}
+          </ScrollReveal>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((p) => (

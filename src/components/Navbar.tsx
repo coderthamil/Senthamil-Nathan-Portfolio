@@ -18,13 +18,13 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "glass border-b border-border py-4" : "bg-transparent py-6"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass border-b border-border py-4" : "bg-transparent py-6"
+          }`}
       >
         <div className="container flex items-center justify-between">
           <a href="#" className="text-foreground font-display text-2xl italic">
-            Alex<span className="text-primary">.</span>
+
+            Senthamil Nathan<span className="text-primary">.</span>
           </a>
 
           <div className="hidden md:flex items-center gap-10">
@@ -38,7 +38,7 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href="/Senthamil-Nathan-Backend-Developer.pdf"
               download
               className="text-sm font-medium px-5 py-2 rounded-full bg-primary text-primary-foreground hover:shadow-[0_0_25px_hsl(var(--primary)/0.5),0_0_50px_hsl(var(--primary)/0.2)] transition-all duration-300"
             >

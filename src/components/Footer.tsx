@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <a href="#" className="text-foreground font-display text-2xl italic">
-              Alex<span className="text-primary">.</span>
+              Senthamil Nathan<span className="text-primary">.</span>
             </a>
             <p className="text-muted-foreground text-sm mt-2">
               Designed & built with care.
@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
 
           <a
-            href="/resume.pdf"
+            href="/Senthamil-Nathan-Backend-Developer.pdf"
             download
             className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
           >
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-xs">© 2026 Alex Carter. All rights reserved.</p>
+          <p className="text-muted-foreground text-xs">© 2026 Senthamil Nathan. All rights reserved.</p>
           <p className="text-muted-foreground text-xs">Crafted with React, Framer Motion & GSAP</p>
         </div>
       </div>

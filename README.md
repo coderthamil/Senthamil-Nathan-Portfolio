@@ -66,7 +66,7 @@
 <h4 align="center">API Styles</h4>
 <p align="center">
   <img src="https://img.icons8.com/ios-filled/50/000000/api.png" alt="REST" width="40" />&nbsp;&nbsp;
-  <img src="https://cdn.worldvectorlogo.com/logos/graphql.svg" alt="GraphQL" width="40" />
+  <img src="https://symbols-electrical.getvecta.com/stencil_82/65_graphql.b15a89138d.png" alt="GraphQL" width="60" />
 </p>
 
 <h3 align="center">Database</h3>

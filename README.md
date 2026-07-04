@@ -59,8 +59,14 @@
 <h3 align="center">Backend</h3>
 <p align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express.js" width="40" />&nbsp;&nbsp;
-  <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="Django" width="40" />
+  <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="Django" width="40" />&nbsp;&nbsp;
+  <img src="https://cdn.worldvectorlogo.com/logos/fastapi.svg" alt="FastAPI" width="40" />
+</p>
 
+<h4 align="center">API Styles</h4>
+<p align="center">
+  <img src="https://img.icons8.com/ios-filled/50/000000/api.png" alt="REST" width="40" />&nbsp;&nbsp;
+  <img src="https://cdn.worldvectorlogo.com/logos/graphql.svg" alt="GraphQL" width="40" />
 </p>
 
 <h3 align="center">Database</h3>
